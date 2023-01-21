@@ -107,6 +107,7 @@ class AudioReactiveFlow(BaseFlow):
 
             start_frame, start_prompt = start_key_frame
             end_frame, end_prompt = end_key_frame
+            if start_frame == end_frame: continue # prevent bug where start and end frames are the same
             num_frames = (end_frame - start_frame) + 1
 
             end_latent = (

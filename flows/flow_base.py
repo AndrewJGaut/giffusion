@@ -48,6 +48,7 @@ class BaseFlow:
 
     @torch.no_grad()
     def encode_latents(self, x, generator=None):
+        x.half() # for when we use fp16
         init_latent_dist = self.pipe.vae.encode(x.to(self.device)).latent_dist
         latent = 0.18215 * init_latent_dist.sample(generator=generator)
         return latent
