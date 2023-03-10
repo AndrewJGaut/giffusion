@@ -26,8 +26,8 @@ pipe = StableDiffusionPipeline.from_pretrained(
     PRETRAINED_MODEL_NAME, use_auth_token=True,
     torch_dtype=torch.float16
 )
-#pipe.enable_attention_slicing()
-pipe.enable_xformers_memory_efficient_attention() 
+pipe.enable_attention_slicing()
+#pipe.enable_xformers_memory_efficient_attention() 
 pipe.to(device)
 
 OUTPUT_BASE_PATH = os.getenv("OUTPUT_BASE_PATH", "../generated")
